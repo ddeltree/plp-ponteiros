@@ -258,12 +258,26 @@ int* f() {
 }
 ```
 
+```c
+int* f() {              // Boa prática
+    int *p = malloc(sizeof(int));
+    return p;           // seguro, memória na heap ainda existe após a função
+}
+```
+
 - **Double free**: chamar `free` duas vezes para o mesmo ponteiro.
 
 ```c
 int *p = malloc(sizeof(int));
 free(p);
 free(p);                // ERRO: comportamento indefinido
+```
+
+- **Vazamento de memória (memory leak)**: memória alocada dinamicamente que perde todos os seus ponteiros sem ser liberada por `free`
+
+```c
+int *p = malloc(5 * sizeof(int));
+p = malloc(10 * sizeof(int)); // memória anterior perdida (ainda existe, mas inacessível)
 ```
 
 - **malloc NULL**: `malloc` retorna NULL quando a heap está cheia
