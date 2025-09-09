@@ -229,11 +229,22 @@ bubble_sort(v, n, cmp_ints);
 - **Double free**: chamar `free` duas vezes para o mesmo ponteiro.
 - Sempre inicializar ponteiros e liberar memória corretamente.
 
----
+<br>
+<br>
 
-## Compilação e Execução
+# Compilação e Execução
 
-### Compilação (Linux/WSL)
+Para depuração e compilação, usamos o **Visual Studio Code** com a extensão oficial **C/C++ da Microsoft**. O **debugger** usa o **GDB** no Linux.
+
+### Compilação e execução automática pelo debugger
+
+1. Abra o VS Code na pasta do projeto.
+2. Selecione o arquivo-fonte do exemplo que deseja executar/debugar.
+3. Pressione **F5** ou vá em **Run > Start Debugging**.
+   - O VS Code executará a task `"build"` automaticamente antes de iniciar o debugger.
+4. O programa será executado no console interno do VS Code.
+
+### Compilação manual (Linux/WSL)
 
 ```bash
 gcc src/ex1.c src/utils/table.c -o build/ex1
@@ -249,7 +260,7 @@ Ou usando a task do VS Code:
 - Selecionar o arquivo ativo e executar **Ctrl+Shift+B** (Build Current Program)
 - Binário gerado em `build/`
 
-### Execução
+### Execução manual
 
 ```bash
 ./build/ex1
@@ -267,7 +278,4 @@ Ou usando a task do VS Code:
 - Compilador C (`gcc`)
 - Biblioteca padrão do C (`stdlib.h`, `stdio.h`)
 - Nenhuma biblioteca externa.
-
-```
-
-```
+- (_Opcional para o debugger_) VsCode + extensão [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) + Linux + gdb
