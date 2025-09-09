@@ -66,7 +66,7 @@ int *p = a;
 ```
 
 - `a[i]` ≡ `*(p+i)`
-- `p+1` avança `sizeof(int)` bytes
+- `p+1` avança `sizeof(*p)` bytes, ou seja, `sizeof(int)` bytes
 - Permite percorrer arrays usando ponteiros.
 
 **Saída esperada:**
