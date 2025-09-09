@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "build",
+      "command": "bash",
+      "args": [
+        "-c",
+        "mkdir -p ${workspaceFolder}/build && gcc -fdiagnostics-color=always -g ${file} src/utils/*.c -o build/${fileBasenameNoExtension}"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$gcc"],
+      "group": { "kind": "build", "isDefault": true }
+    }
+  ]
+}
