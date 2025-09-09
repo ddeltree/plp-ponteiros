@@ -225,9 +225,61 @@ bubble_sort(v, n, cmp_ints);
 ## Cuidados e Armadilhas
 
 - **Ponteiro selvagem**: ponteiro não inicializado.
+
+```c
+int *p;                 // ponteiro selvagem
+printf("%d\n", *p);     // ERRO: acessar causa comportamento indefinido / segfault
+```
+
+```c
+int *p = NULL;          // boa prática: inicializar para NULL
+```
+
 - **Dangling pointer**: ponteiro apontando para memória liberada.
+
+```c
+int *p = malloc(sizeof(int));
+free(p);
+printf("%d\n", *p);     // ERRO: acessar causa comportamento indefinido
+```
+
+```c
+int *p = malloc(sizeof(int));
+free(p);
+p = NULL;               // boa prática: evita dangling pointer
+```
+
+- **Dangling pointer a variável local**: ponteiro apontando para variável fora do escopo
+
+```c
+int* f() {
+    int x = 42;
+    return &x;          // ERRO: ponteiro aponta para variável que não existe mais
+}
+```
+
 - **Double free**: chamar `free` duas vezes para o mesmo ponteiro.
-- Sempre inicializar ponteiros e liberar memória corretamente.
+
+```c
+int *p = malloc(sizeof(int));
+free(p);
+free(p);                // ERRO: comportamento indefinido
+```
+
+- **malloc NULL**: `malloc` retorna NULL quando a heap está cheia
+
+```c
+int *p = malloc(sizeof(int) * 1000000);
+if (p == NULL) {}       // boa prática
+```
+
+- **Confusão entre `[]` e `*`**: Ponteiros decaem de arrays, mas não há verificação automática de limites
+
+```c
+int a[3] = {1,2,3};
+int *p = a;
+*(a+5) = 10;            // ERRO: acessando memória fora do array
+```
 
 <br>
 <br>
