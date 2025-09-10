@@ -13,15 +13,21 @@ Este trabalho explora os conceitos fundamentais de ponteiros em C, aplicando-os 
 
 Todos os códigos foram comentados detalhadamente, mostrando como cada conceito funciona na prática.
 
----
+## Equipe
+
+Trabalho em equipe desenvolvido para a disciplina de PLP do curso de Ciência da Computação, UFAL - Campus Arapiraca.
+
+- Aleksander Pires Calixto Negrão
+- Carlos Emanuel Magalhães Silva
+- José Carlos Silva Santos
+- José Davi Alexandre dos Santos
+- José Vinícius Cavalcante Soares
 
 ## Conteúdo do Repositório
 
 - `src/` → arquivos-fonte dos exemplos.
 - `src/utils/` → funções utilitárias para impressão tabular.
 - `README.md` → explicações teóricas e instruções de uso.
-
----
 
 ## Conceitos Demonstrados
 
@@ -55,8 +61,6 @@ int *p = &x;
 | Endereco inalterado         | 0x7fffffffd114 |
 +-----------------------------+----------------+
 ```
-
----
 
 ### 2. Relação entre Arrays e Ponteiros
 
@@ -98,8 +102,6 @@ Array: 10 20 30 40 50
 +----------------+----------------+
 ```
 
----
-
 ### 3. Diferença entre `char s[]` e `const char *`
 
 ```c
@@ -130,8 +132,6 @@ const char *s2 = "world";
 +----------------+-------------+------------+
 ```
 
----
-
 ### 4. Função Swap com Ponteiros
 
 ```c
@@ -160,8 +160,6 @@ void swap(int *a, int *b) {
 | Depois y | 10 |
 +----------+----+
 ```
-
----
 
 ### 5. Alocação Dinâmica de Memória
 
@@ -195,8 +193,6 @@ arr = malloc(n * sizeof *arr);
 +--------+--------------+------------------+
 ```
 
----
-
 ### 6. Ponteiro para Função
 
 ```c
@@ -219,8 +215,6 @@ bubble_sort(v, n, cmp_ints);
 | Depois | 3 | 5 | 17 | 42 | 42 | 99 |
 +--------+---+---+----+----+----+----+
 ```
-
----
 
 ## Cuidados e Armadilhas
 
@@ -336,8 +330,6 @@ Ou usando a task do VS Code:
 ./build/ex5
 ./build/ex6
 ```
-
----
 
 ## Dependências
 
